@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import cgi, cgitb, urllib2
 from subprocess import call
 
@@ -12,7 +14,7 @@ textFile = open("data.txt", "a")
 textFile.write("Test\n")
 textFile.close
 
-print 'Content-Type:text/html\n\n'
+print "Content-type:text/html\r\n\r\n"
 print '<html>'
 print '%s' %inputString
 print '</html>'
