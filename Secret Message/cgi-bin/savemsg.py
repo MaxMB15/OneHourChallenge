@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import cgi, cgitb, urllib2
+import cgi, cgitb, urllib2, random
 from subprocess import call
 
 
@@ -8,10 +8,21 @@ from subprocess import call
 form = cgi.FieldStorage()
 inputString = form.getvalue('MSG')
 
+"""get the responses in a string array"""
+compFile = open("data.txt", "r")
+responses = compFile.read().split("~*(!)@\n")
+responses = responses[:-1]
+compFile.close()
+
+"""add new response to array"""
+responses.append(inputString)
+random.shuffle(responses)
+
 """save it to a file"""
-textFile = open("data.txt", "a")
-textFile.write("!@#~%s~*()\n" %inputString)
-textFile.close
+textFile = open("data.txt", "w")
+for i in range(len(responses)-1):
+    	textFile.write("%s~*(!)@\n" %responses[i])
+textFile.close()
 
 print "Content-type:text/html\r\n\r\n"
 print '<html>'
