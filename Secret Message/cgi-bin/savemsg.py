@@ -11,7 +11,8 @@ inputString = form.getvalue('MSG')
 """get the responses in a string array"""
 compFile = open("data.txt", "r")
 responses = compFile.read().split("~*(!)@\n")
-responses = responses[:-1]
+if len(responses) != 0:
+	responses = responses[:-1]
 compFile.close()
 
 """add new response to array"""
@@ -20,7 +21,7 @@ random.shuffle(responses)
 
 """save it to a file"""
 textFile = open("data.txt", "w")
-for i in range(len(responses)-1):
+for i in range(len(responses)):
     	textFile.write("%s~*(!)@\n" %responses[i])
 textFile.close()
 

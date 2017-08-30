@@ -1,4 +1,6 @@
-import cgi, cgitb, urllib2, random
+#!/usr/bin/python
+
+import cgi, cgitb, urllib2
 from subprocess import call
 
 
@@ -26,6 +28,7 @@ print '<center><h3>'
 """get the responses in a string array"""
 compFile = open("data.txt", "r")
 responses = compFile.read().split("~*(!)@\n")
+responses = responses[:-1]
 compFile.close()
 
 if inputString.upper() == "RESET %s" %password.upper():
@@ -52,7 +55,7 @@ elif inputString.upper().startswith("REMOVE "):
 	else:
 		print "ERROR!!!"
 elif inputString.upper() == "COUNT":
-	print len(responses)-1
+	print len(responses)
 elif inputString.upper().startswith("PASS %s " %password.upper()):
 	splitArray = inputString.split(" ")
 	if len(splitArray) > 3:
