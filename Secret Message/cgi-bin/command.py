@@ -37,7 +37,7 @@ if inputString.upper() == "RESET %s" %password.upper():
 	print "All messages have been reset."
 elif inputString.upper() == "DOWN %s" %password.upper():
 	for i in range(len(responses)):
-    		print("%s" %responses[i])
+    	print("%s" %responses[i])
 		print "<br><br>"
 elif inputString.upper().startswith("REMOVE "):	
 	matching = [s for s in responses if inputString[7:] in s]
