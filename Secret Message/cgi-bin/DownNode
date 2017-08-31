@@ -1,0 +1,25 @@
+#!/usr/bin/python
+
+import cgi, cgitb, urllib2, random
+from subprocess import call
+
+"""get the input from the html file"""
+form = cgi.FieldStorage()
+onNum = int(form.getvalue('Number'))
+
+"""get the responses in a string array"""
+compFile = open("data.txt", "r")
+responses = compFile.read().split("~*(!)@\n")
+if len(responses) != 0:
+	responses = responses[:-1]
+compFile.close()
+
+print "Content-type:text/html\r\n\r\n"
+print '<html>'
+print '<center><h3>%s</h3>' %responses[onNum]
+print '<form id="NodeTransfer" action="cgi-bin/DownNode.py" method="POST">'
+print '<input name="nextNode" type="submit" value="Next">'
+print '<input name="val" type="hidden" value="%s">' %(onNum+1)
+print '</form>'
+print '</center>'
+print '</html>'
