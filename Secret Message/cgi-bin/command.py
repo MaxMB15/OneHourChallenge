@@ -36,7 +36,7 @@ if inputString.upper() == "RESET %s" %password.upper():
 	tempFile.close()
 	print "All messages have been reset."
 elif inputString.upper() == "DOWN %s" %password.upper():
-	print '<form id="NodeTransfer" action="cgi-bin/DownNode.py" method="POST">'
+	print '<form id="NodeTransfer" action="DownNode.py" method="POST">'
 	print '<input name="nextNode" type="submit" value="Next">'
 	print '<input name="Number" type="hidden" value="0">'
 	print '</form>'

@@ -5,7 +5,8 @@ from subprocess import call
 
 """get the input from the html file"""
 form = cgi.FieldStorage()
-onNum = int(form.getvalue('Number'))
+StringNum = form.getvalue('Number')
+onNum = int(StringNum)
 
 """get the responses in a string array"""
 compFile = open("data.txt", "r")
@@ -19,7 +20,7 @@ print '<html>'
 print '<center><h3>%s</h3>' %responses[onNum]
 
 if len(onNum)-1 != onNum:
-	print '<form id="NodeTransfer" action="cgi-bin/DownNode.py" method="POST">'
+	print '<form id="NodeTransfer" action="DownNode.py" method="POST">'
 	print '<input name="nextNode" type="submit" value="Next">'
 	print '<input name="Number" type="hidden" value="%s">' %(onNum+1)
 	print '</form>'
