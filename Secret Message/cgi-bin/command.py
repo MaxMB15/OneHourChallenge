@@ -36,9 +36,12 @@ if inputString.upper() == "RESET %s" %password.upper():
 	tempFile.close()
 	print "All messages have been reset."
 elif inputString.upper() == "DOWN %s" %password.upper():
+	print '<h2>'
+	print responses[0]
+	print '</h2>'
 	print '<form id="NodeTransfer" action="DownNode.py" method="POST">'
 	print '<input name="nextNode" type="submit" value="Next">'
-	print '<input name="Number" type="hidden" value="0">'
+	print '<input name="Number" type="hidden" value="1">'
 	print '</form>'
 elif inputString.upper().startswith("REMOVE "):	
 	matching = [s for s in responses if inputString[7:] in s]

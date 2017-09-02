@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import cgi, cgitb, urllib2, random
+import cgi, cgitb, urllib2
 from subprocess import call
 
 """get the input from the html file"""
@@ -17,9 +17,9 @@ compFile.close()
 
 print "Content-type:text/html\r\n\r\n"
 print '<html>'
-print '<center><h3>%s</h3>' %responses[onNum]
+print '<center><h2>%s</h2>' %responses[onNum]
 
-if len(onNum)-1 != onNum:
+if len(responses)-1 != onNum:
 	print '<form id="NodeTransfer" action="DownNode.py" method="POST">'
 	print '<input name="nextNode" type="submit" value="Next">'
 	print '<input name="Number" type="hidden" value="%s">' %(onNum+1)
